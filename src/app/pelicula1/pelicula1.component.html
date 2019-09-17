@@ -1,0 +1,30 @@
+<img [src]="img2" class="img-fluid" alt="Responsive image">
+
+
+<form>
+    <div class="form-group">
+            <label for="exampleInputEmail1">Sala de cine</label>
+            <select class="form-control-sm" (change)="onchance($event)">
+                    <option selected disabled >Seleccione</option>
+                    <option *ngFor="let cinema of select"  [value]="cinema">{{cinema}}</option>
+             </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Precio Boleto</label>
+      <input type="text" class="form-control-sm" id="precio" [value]="precio" aria-describedby="emailHelp" placeholder="" readonly>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Cantidad boletos</label>
+      <input type="number" class="form-control-sm" id="exampleInputPassword1" (change)="totalTiquete($event)" [(value)]="cantidad">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Total</label>
+      <input type="text" class="form-control-sm" id="total"  [value]="total1" aria-describedby="emailHelp" placeholder="" readonly>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" (click)="isActive1()" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Mayor de edad</label>
+    </div>
+    <button type="submit" [routerLink]="['/home']" routerLinkActive="router-link-active"  [disabled]="!isActive" class="btn btn-primary">Comprar</button>
+  </form>
+
